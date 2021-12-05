@@ -1,9 +1,10 @@
+import { Signin } from "./components/Screens/Signin";
+
+
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-       <h1>HHJ</h1>
-      </header>
+        <Signin/>        
     </div>
   );
 }
