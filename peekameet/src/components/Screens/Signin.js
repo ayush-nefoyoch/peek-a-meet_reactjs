@@ -1,37 +1,31 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Signin.css";
 import signin from "../../assets/images/signin.png";
+import { Header } from "../Layout/Header";
 
 export const Signin = () => {
+
+const [userEmail, setUserEmail] = useState('');
+const [userPassword, setUserPassword] = useState('');
+
+  const loginHandler = (event)=>{
+    event.preventDefault();
+    console.log(userEmail);
+    console.log(userPassword);
+  }
+
+  const emailHandler = (e)=>{
+    setUserEmail(e.target.value);
+    
+  }
+  const passwordHandler = (e)=>{
+    setUserPassword(e.target.value);
+  }
+
   return (
     <>
       <div className="firstContainer">
-        <nav class="navbar">
-          <a class="navbar-brand" href="https://reactjs.org">
-            <img
-              src="/docs/4.0/assets/brand/bootstrap-solid.svg"
-              width="30"
-              height="30"
-              className="d-inline-block align-top logoTxt"
-              alt=""
-            />
-            PEEKaMEET
-          </a>
-          <div className="navItems">
-            <ul className="navbar-nav">
-              <li className="nav-item active">
-                <a className="nav-link" href="/signin">
-                  Sign In <span className="sr-only">(current)</span>
-                </a>
-              </li>
-              <li>
-                <a className="nav-link" href="/signin">
-                  Sign Up <span className="sr-only">(current)</span>
-                </a>
-              </li>
-            </ul>
-          </div>
-        </nav>
+      <Header/>
         <div className="centerContainer">
           <div className="card mb-3 mt-3 first">
             <div className="row no-gutters">
@@ -53,7 +47,7 @@ export const Signin = () => {
                     <br />
                     <br />
                     <span className="intern">Internship Seeker</span>
-                    <span className="environment">
+                    <span clas sName="environment">
                       Environmental Change Maker
                     </span>
                   </div>
@@ -62,18 +56,18 @@ export const Signin = () => {
                   </p>
                 </div>
 
-                <form action="/action_page.php">
+                <form onSubmit={loginHandler}>
                   <div class="form-group">
                     <label for="email" className="Email">
                       Email
                     </label>
-                    <input type="email" className="form-control" id="email" />
+                    <input type="email" className="form-control" id="email"  onChange={emailHandler} />
                   </div>
                   <div class="form-group">
                     <label for="pwd" className="password">
                       Password:
                     </label>
-                    <input type="password" className="form-control" id="pwd" />
+                    <input type="password" className="form-control" id="pwd"  onChange={passwordHandler}/>
                   </div>
                   <button type="submit" className="btn btn-default submit">
                     Sign In
