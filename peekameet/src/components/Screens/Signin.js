@@ -7,11 +7,35 @@ export const Signin = () => {
 
 const [userEmail, setUserEmail] = useState('');
 const [userPassword, setUserPassword] = useState('');
+const [error, setError] = useState({});
 
-  const loginHandler = (event)=>{
-    event.preventDefault();
+const loginHandler = (event)=>{
+  event.preventDefault();
+  let checkDisplayError = false;
     console.log(userEmail);
     console.log(userPassword);
+    if(userEmail.trim().length === 0 || userPassword.trim().length === 0){
+      setError({
+        title:"Invalid Input",
+        msg: "Please enter valid email and password (non-empty values.)"
+      })
+      checkDisplayError = true;
+      return;
+    }
+    if(userPassword.trim().length < 8){
+      setError({
+        title: "Invalid Password",
+        msg: "Password must be of 8 charcaters!"
+      })
+      return;
+    }
+    const store = userPassword.match(/\d+/g);
+    if(store === null){
+      setError({
+        title: "Invalid Password",
+        msg: "Password must contain a number!"
+      })
+    }
   }
 
   const emailHandler = (e)=>{
@@ -61,14 +85,16 @@ const [userPassword, setUserPassword] = useState('');
                     <label for="email" className="Email">
                       Email
                     </label>
-                    <input type="email" className="form-control" id="email"  onChange={emailHandler} />
+                    <input type="email" className="form-control" id="email" value={userEmail} onChange={emailHandler} />
                   </div>
+                    {error && <div>{error.msg}</div>}
                   <div class="form-group">
                     <label for="pwd" className="password">
                       Password:
                     </label>
-                    <input type="password" className="form-control" id="pwd"  onChange={passwordHandler}/>
+                    <input type="password" className="form-control" id="pwd" value={userPassword} onChange={passwordHandler}/>
                   </div>
+                  {error && <div>{error.msg}</div>}
                   <button type="submit" className="btn btn-default submit">
                     Sign In
                   </button>
