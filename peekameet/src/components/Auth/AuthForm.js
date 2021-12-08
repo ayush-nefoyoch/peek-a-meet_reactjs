@@ -17,6 +17,13 @@ const AuthForm = () => {
     const enteredEmail = emailInputRef.current.value;
     const enteredPassword = passwordInputRef.current.value;
 
+    if (enteredEmail.trim().length === 0) {
+      setEmailError({
+        title: "Invalid Input",
+        msg: "Please enter valid email(non-empty value.)",
+      });
+      return;
+    }
     if (enteredPassword.trim().length === 0) {
       setPasswordError({
         title: "Invalid Input",
