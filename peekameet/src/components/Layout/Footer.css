@@ -1,0 +1,13 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans&display=swap");
+
+.peek{
+    margin: 0 0px 0 -120px;
+    /* background-color: red; */
+}
+.follow{
+    margin: 0 0 0 80px;
+}
+
+footer a{
+    font-family: "DM Sans", sans-serif;
+}

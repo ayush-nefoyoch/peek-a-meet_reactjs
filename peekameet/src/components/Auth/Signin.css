@@ -2,7 +2,7 @@
 
 .firstContainer {
   background-color: #14b349;
-  height: 968px;
+  height: 820px;
 }
 nav {
   margin: 0 143px;
@@ -12,7 +12,7 @@ nav {
 }
 
 .centerContainer {
-  margin: 86px 43px 94px 143px;
+  padding: 16px 144px 94px 143px;
 }
 .signinImageBox {
   margin-left: 310px;
@@ -121,6 +121,7 @@ input[type="password"]:focus {
   border-radius: 4px;
   background-image: linear-gradient(92deg, #14b349 -109%, #09a04f 209%);
   color: white;
+  border: none;
 }
 .checkbox {
   width: 80%;
