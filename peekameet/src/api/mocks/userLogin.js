@@ -1,4 +1,4 @@
-{
+const success = {
     "success": true,
     "httpCode": 200,
     "data": [
@@ -88,3 +88,13 @@
     ],
     "message": "1006"
 }
+
+function successResponse(){
+   return new Promise((resolve, reject) => {
+       setTimeout(()=>{
+           resolve(success);
+       }, 100)
+   }) 
+};
+
+export { successResponse };
