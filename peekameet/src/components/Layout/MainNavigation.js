@@ -6,7 +6,6 @@ import classes from './MainNavigation.module.css';
 const MainNavigation = () => {
 
   const authCtx = useContext(AuthContext);
-
   const isLoggedIn = authCtx.isLoggedIn;
   const logoutHandler = ()=>{
     authCtx.logout();

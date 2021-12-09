@@ -1,34 +1,35 @@
-import { useState, useRef, useContext, useEffect } from "react";
+import { useState, useRef, useContext } from "react";
 import AuthContext from "../../store/AuthProvider";
 import { useNavigate } from "react-router-dom";
 import { successResponse } from "../../api/mocks/userLogin";
 import "./Signin.css";
-// import {LOGIN_API} from '../../assets/library/Constant';
-
 const AuthForm = () => {
   const [emailError, setEmailError] = useState({});
   const [passwordError, setPasswordError] = useState({});
   const navigate = useNavigate();
   const emailInputRef = useRef();
   const passwordInputRef = useRef();
+
+
   const authCtx = useContext(AuthContext);
+  // const authCtx = useContext(SignInContext);
+
   const [isLoading, setIsLoading] = useState(false);
 
 
   const getDataFromMokedAPI = async () => {
     const result = await successResponse();
     // console.log(result.data[0].token);
-    return result.data[0].token;
+    return result;
   }
-// useEffect(()=>{
-// getDataFromMokedAPI();
-// }, []);
-
+  
   const submitHandler = async (event) => {
     event.preventDefault();
     const enteredEmail = emailInputRef.current.value;
     const enteredPassword = passwordInputRef.current.value;
-    console.log("enterre", enteredEmail)
+
+    console.log("enterre", authCtx.data);
+
     if (enteredEmail.trim().length === 0) {
       console.log("123", enteredEmail)
       setEmailError({
@@ -63,7 +64,9 @@ const AuthForm = () => {
       enteredEmail === "bhagyashree.srivastava@daffodilsw.com" &&
       enteredPassword === "Hrhk@1234"
     ) {
-      setIsLoading(true);
+      // setIsLoading(true);
+      // authCtx.apiData(enteredEmail, enteredPassword);
+      // getData(enteredEmail, enteredPassword);
       // const url = "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyDsdcPSmle-DK7F1UQ6WKZ8FlJAnTuqw_s";
       // // const url = `${LOGIN_API}`;
       // fetch(url, {
@@ -100,9 +103,11 @@ const AuthForm = () => {
       //   .catch((err) => {
       //     alert(err.message);
       //   });
+      // -------
       await getDataFromMokedAPI()
       .then((res)=>{
-        authCtx.login(res, 60000);
+        authCtx.login(res.data[0].token, 60000);
+        // authCtx.getData(res.data)
         navigate("/profile");
       }).catch(err=>{
         alert("Error Occured!")
@@ -111,15 +116,13 @@ const AuthForm = () => {
         setIsLoading(false);
 
       })
+      // ----------
     } else {
       alert("Invalid email and password!");
     }
   };
   return (
     <>
-    {
-      console.log("Email Error"  ,emailError)
-    }
       <form onSubmit={submitHandler}>
         <div className="form-group">
           <label htmlFor="email" className="Email">
