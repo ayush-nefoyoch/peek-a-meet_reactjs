@@ -1,7 +1,7 @@
 import config from '../variables.json';
 
 const API = {
-    LOGIN_URL: config.LOGIN_API
+    LOGIN_API: config.LOGIN_API
 }
 
 export default API;

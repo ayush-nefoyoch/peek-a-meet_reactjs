@@ -2,6 +2,7 @@ import { useState, useRef, useContext } from "react";
 import AuthContext from "../../store/AuthProvider";
 import { useNavigate } from "react-router-dom";
 import "./Signin.css";
+// import {LOGIN_API} from '../../assets/library/Constant';
 
 const AuthForm = () => {
   const [emailError, setEmailError] = useState({});
@@ -51,11 +52,11 @@ const AuthForm = () => {
       enteredPassword === "Hrhk@1234"
     ) {
       setIsLoading(true);
-      let url =
-        "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyDsdcPSmle-DK7F1UQ6WKZ8FlJAnTuqw_s";
+      const url = "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyDsdcPSmle-DK7F1UQ6WKZ8FlJAnTuqw_s";
+      // const url = `${LOGIN_API}`;
       fetch(url, {
         method: "POST",
-        body: JSON.stringify({
+        body: JSON.stringify({  
           email: enteredEmail,
           password: enteredPassword,
           returnSecureToken: true,
