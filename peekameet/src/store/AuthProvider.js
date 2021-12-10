@@ -1,74 +1,73 @@
-import React, { useEffect, useState, useCallback } from "react";
+import React, { useState } from "react";
 import { AuthContext } from "./auth-context";
-let logoutTimer;
-
-const calculateRemainingTime = (expirationTime) => {
-  const currentTime = new Date().getTime();
-  const adjExpirationTime = new Date(expirationTime).getTime();
-  const remainingDuration = adjExpirationTime - currentTime;
-  return remainingDuration;
-};
-const retrievedStoredToken = () => {
-  const storedToken = localStorage.getItem("token");
-  const storedExpirationDate = localStorage.getItem("expirationTime");
-  const remainingTime = calculateRemainingTime(storedExpirationDate);
-  if (remainingTime <= 60000) {
-    localStorage.removeItem("token");
-    localStorage.removeItem("expirationTime");
-    return null;
-  }
-  return {
-    token: storedToken,
-    duration: remainingTime,
-  };
-};
+import success from "../api/mocks/userLogin";
 
 export const AuthContextProvider = (props) => {
-  const tokenData = retrievedStoredToken();
-  let initialToken;
-  if (tokenData) {
-    initialToken = tokenData.token;
-  }
-  const [token, setToken] = useState(initialToken);
-  const [userData, setUserData] = useState("");
+  const [token, setToken] = useState("");
+  const [userData, setUserData] = useState({});
+  const [isSuccess, setIsSuccess] = useState(false);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
+
   const userIsLoggedIn = !!token;
-
-  const logoutHandler = useCallback(() => {
+  const logoutHandler = () => {
     setToken(null);
-    localStorage.removeItem("token");
-    localStorage.removeItem("expirationTime");
-    if (logoutTimer) {
-      clearTimeout(logoutTimer);
-    }
-  }, []);
-
-  const loginHandler = (token, expirationTime) => {
-    setToken(token);
-    localStorage.setItem("token", token);
-    localStorage.setItem("expirationTime", expirationTime);
-
-    const remainingTIme = calculateRemainingTime(expirationTime);
-    logoutTimer = setTimeout(logoutHandler, remainingTIme);
   };
 
-  const getDataHandler = (userData) => {
-    setUserData(userData);
+  const loginHandler = (expirationTime) => {
+    console.log(userData)
+    setToken(success.data[0].token);
+    console.log(token);
+    setTimeout(logoutHandler, expirationTime);
   };
 
-  useEffect(() => {
-    if (tokenData) {
-      console.log(tokenData.duration);
-      logoutTimer = setTimeout(logoutHandler, tokenData.duration);
-    }
-  }, [tokenData, logoutHandler]);
+  const getData = (userEmail, userPassword) => {
+    const url =
+      "https://apipeekameet.closudzmall.com/peekameet/api/v1/public/user/login";
+    fetch(url, {
+      method: "POST",
+      body: JSON.stringify({
+        email: userEmail,
+        password: userPassword,
+      }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((response) => {
+        return response.json();
+      })
+      .then((response) => {
+        const { success, httpCode, data } = response;
+        if (success === true) {
+          setLoading(false);
+        }
+        if (httpCode === 200) {
+          setIsSuccess(true);
+        }
+        if (data) {
+          setUserData(success.data[0]);
+        }
+        if (httpCode !== 200) {
+          setError("error");
+        }
+      })
+      .catch((error) => {
+        console.log("?", error);
+        setUserData(success);
+      });
+  };
 
   const contextValue = {
     token: token,
     isLoggedIn: userIsLoggedIn,
     login: loginHandler,
     logout: logoutHandler,
-    userData: userData,
-    getData: getDataHandler,
+    isFetching: loading,
+    isSuccess: isSuccess,
+    error: error,
+    data: userData,
+    getAPIData: getData,
   };
 
   return (

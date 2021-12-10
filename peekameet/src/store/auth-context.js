@@ -6,5 +6,11 @@ export const AuthContext = React.createContext({
   login: (token) => {},
   logout: () => {},
   userData: {},
-  getData: (userData) => {},
+  getUserData: (userData) => {},
+
+  isFetching: false,
+    isSuccess: false,
+    error: '',
+    data: {},
+    getAPIData: ()=>{}
 });

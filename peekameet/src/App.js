@@ -11,6 +11,7 @@ import { Route, Routes, Navigate } from "react-router-dom";
 function App() {
   const authCtx = useContext(AuthContext);
   // const authCtx = useContext(SignInContext);
+  // console.log( authCtx.data)
   return (
     <>
     <Layout>

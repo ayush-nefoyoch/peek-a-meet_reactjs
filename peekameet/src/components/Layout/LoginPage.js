@@ -1,14 +1,14 @@
-import React from 'react'
+import React from "react";
 import signin from "../../assets/images/signin.png";
-import AuthForm from '../Auth/AuthForm';
-import '../Auth/Signin.css'; 
-import { Footer } from './Footer';
+import AuthForm from "../Auth/AuthForm";
+import "../Auth/Signin.css";
+import { Footer } from "./Footer";
 
 export const LoginPage = () => {
-    return (
-      <>
-        <div className="firstContainer">
-            <div className="centerContainer">
+  return (
+    <>
+      <div className="firstContainer">
+        <div className="centerContainer">
           <div className="card mb-3 mt-3 first">
             <div className="row no-gutters">
               <div className="col-md-6 signinImage">
@@ -37,13 +37,13 @@ export const LoginPage = () => {
                     Build and manage your network with PEEKaMEET
                   </p>
                 </div>
-                <AuthForm/>
+                <AuthForm />
+              </div>
+            </div>
+          </div>
         </div>
-        </div>
-        </div>
-        </div>
-        </div>
-                <Footer/>
-        </>
-    )
-}
+      </div>
+      <Footer />
+    </>
+  );
+};

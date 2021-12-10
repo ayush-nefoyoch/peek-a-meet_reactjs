@@ -1,11 +1,11 @@
-import { LoginPage } from '../components/Layout/LoginPage';
+import { LoginPage } from "../components/Layout/LoginPage";
 
 const AuthPage = () => {
-  return(
-  <>
-  <LoginPage/>
-  </>
-  )
+  return (
+    <>
+      <LoginPage />
+    </>
+  );
 };
 
 export default AuthPage;
