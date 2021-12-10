@@ -15,11 +15,11 @@ export const AuthContextProvider = (props) => {
   };
 
   const loginHandler = (expirationTime) => {
-    console.log(userData)
     setToken(success.data[0].token);
-    console.log(token);
     setTimeout(logoutHandler, expirationTime);
   };
+
+  
 
   const getData = (userEmail, userPassword) => {
     const url =
@@ -53,7 +53,7 @@ export const AuthContextProvider = (props) => {
         }
       })
       .catch((error) => {
-        console.log("?", error);
+        // console.log("?", error);
         setUserData(success);
       });
   };

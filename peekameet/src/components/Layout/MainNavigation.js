@@ -9,7 +9,6 @@ const MainNavigation = () => {
   const logoutHandler = () => {
     authCtx.logout();
   };
-  console.log(isLoggedIn);
   return (
     <header className={classes.header}>
       <Link to="/">

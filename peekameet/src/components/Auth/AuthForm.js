@@ -15,11 +15,7 @@ const AuthForm = () => {
     event.preventDefault();
     const enteredEmail = emailInputRef.current.value;
     const enteredPassword = passwordInputRef.current.value;
-
-    console.log("enterre", authCtx.data);
-
     if (enteredEmail.trim().length === 0) {
-      console.log("123", enteredEmail);
       setEmailError({
         title: "Invalid Input",
         msg: "Please enter valid email(non-empty value.)",
