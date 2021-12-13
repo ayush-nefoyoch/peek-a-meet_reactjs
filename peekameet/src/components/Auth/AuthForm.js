@@ -1,4 +1,4 @@
-import { useState, useRef, useContext } from "react";
+import { useState, useRef, useContext, useEffect } from "react";
 import AuthContext from "../../store/AuthProvider";
 import { useNavigate } from "react-router-dom";
 import "./Signin.css";
@@ -49,12 +49,19 @@ const AuthForm = () => {
       enteredPassword === "Hrhk@1234"
     ) {
       authCtx.getAPIData(enteredEmail, enteredPassword);
-      authCtx.login(600000);
-      navigate("/profile");
+      // console.log("direct after api call ",authCtx.getData)
+      // authCtx.login(600000);
     } else {
       alert("Invalid email and password!");
     }
   };
+  useEffect(() => {
+    if (authCtx.getData && authCtx.getData.data && authCtx.getData.data[0]) {
+      console.log(authCtx.getData.data[0].token);
+      authCtx.login(authCtx.getData.data[0].token, 600000);
+      navigate("/profile");
+    }
+  }, [authCtx.getData]);
 
   return (
     <>

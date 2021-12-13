@@ -11,15 +11,15 @@ export const AuthContextProvider = (props) => {
 
   const userIsLoggedIn = !!token;
   const logoutHandler = () => {
+    setUserData({});
     setToken(null);
   };
 
-  const loginHandler = (expirationTime) => {
-    setToken(success.data[0].token);
+  const loginHandler = (token, expirationTime) => {
+    console.log(userData.data[0].token);
+    setToken(token);
     setTimeout(logoutHandler, expirationTime);
   };
-
-  
 
   const getData = (userEmail, userPassword) => {
     const url =
@@ -53,6 +53,7 @@ export const AuthContextProvider = (props) => {
         }
       })
       .catch((error) => {
+        console.log("in api call then", error);
         // console.log("?", error);
         setUserData(success);
       });
@@ -66,7 +67,7 @@ export const AuthContextProvider = (props) => {
     isFetching: loading,
     isSuccess: isSuccess,
     error: error,
-    data: userData,
+    getData: userData,
     getAPIData: getData,
   };
 

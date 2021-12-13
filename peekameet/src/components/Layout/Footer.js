@@ -5,7 +5,7 @@ import insta from "../../assets/images/insta.png";
 import twitter from "../../assets/images/twitter.svg";
 import youtube from "../../assets/images/youtube.svg";
 
-export const Footer = () => {
+ const Footer = () => {
   return (
     <div className="footer">
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -61,3 +61,5 @@ export const Footer = () => {
     </div>
   );
 };
+
+export default Footer;

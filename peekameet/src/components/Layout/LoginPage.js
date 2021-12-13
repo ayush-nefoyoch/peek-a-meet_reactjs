@@ -2,7 +2,6 @@ import React from "react";
 import signin from "../../assets/images/signin.png";
 import AuthForm from "../Auth/AuthForm";
 import "../Auth/Signin.css";
-import { Footer } from "./Footer";
 
 export const LoginPage = () => {
   return (
@@ -43,7 +42,6 @@ export const LoginPage = () => {
           </div>
         </div>
       </div>
-      <Footer />
     </>
   );
 };
