@@ -18,7 +18,7 @@ export const AuthContextProvider = (props) => {
   const loginHandler = (token, expirationTime) => {
     console.log(userData.data[0].token);
     setToken(token);
-    setTimeout(logoutHandler, expirationTime);
+    // setTimeout(logoutHandler, expirationTime);
   };
 
   const getData = (userEmail, userPassword) => {
@@ -67,7 +67,7 @@ export const AuthContextProvider = (props) => {
     isFetching: loading,
     isSuccess: isSuccess,
     error: error,
-    getData: userData,
+    userData: userData,
     getAPIData: getData,
   };
 

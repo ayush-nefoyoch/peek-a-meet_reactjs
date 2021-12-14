@@ -8,6 +8,6 @@ export const AuthContext = React.createContext({
   isFetching: false,
   isSuccess: false,
   error: "",
-  getData: {},
+  userData: {},
   getAPIData: () => {},
 });

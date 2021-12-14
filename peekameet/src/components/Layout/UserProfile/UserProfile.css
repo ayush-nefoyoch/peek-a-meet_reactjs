@@ -1,3 +1,9 @@
+
+.detailsSection{
+    display: flex;
+    /* margin: 20px 1520px 0 0; */
+    /* margin-left: 103px; */
+}
 ul{
     display: flex;
     /* justify-content: space-around; */

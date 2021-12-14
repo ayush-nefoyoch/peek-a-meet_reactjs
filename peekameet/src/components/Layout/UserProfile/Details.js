@@ -14,12 +14,13 @@ export const Details = () => {
             <li>
               <Link to="/details" className="link">Details</Link>
             </li>
-            <UserDetails/>
-            </div>
             <li>
               <Link to="/notes" className="link">Notes</Link>
             </li>
+            </div>
             </ul>
+            <UserDetails/>
+            <hr/>
         </div>
     )
 }

@@ -56,12 +56,12 @@ const AuthForm = () => {
     }
   };
   useEffect(() => {
-    if (authCtx.getData && authCtx.getData.data && authCtx.getData.data[0]) {
-      console.log(authCtx.getData.data[0].token);
-      authCtx.login(authCtx.getData.data[0].token, 600000);
+    if (authCtx.userData && authCtx.userData.data && authCtx.userData.data[0]) {
+      console.log(authCtx.userData.data[0].token);
+      authCtx.login(authCtx.userData.data[0].token, 600000);
       navigate("/profile");
     }
-  }, [authCtx.getData]);
+  }, [authCtx.userData]);
 
   return (
     <>
