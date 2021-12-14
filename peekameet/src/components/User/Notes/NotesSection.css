@@ -1,0 +1,26 @@
+li{
+    list-style: none;
+    /* text-decoration: none; */
+}
+.addbtnSection{
+    margin-left: 220px;
+    margin-bottom: 30px;
+    
+}
+.addbtnSection img{
+    font-size: 24px;
+}
+.addnotebtn{
+    padding-left: 5px;
+    /* width: 70px; */
+  /* height: 18px; */
+  /* margin: 0 0 1px 8px; */
+  /* font-family: DMSans; */
+  /* font-size: 24px; */
+  font-weight: 500;
+  color: #1cb54f;
+  text-decoration: none;
+}
+.addnotebtn:hover{
+    cursor: pointer;
+}

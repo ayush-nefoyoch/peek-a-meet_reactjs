@@ -6,10 +6,9 @@ import { Link } from 'react-router-dom';
 
 const ProfilePage = () => {
   return (<>
+    <UserHeader/>
     <Details/>
-    <li>
-              <Link to="/notes">Notes</Link>
-            </li>
+    {/* <Notes/> */}
   </>
   );
 };

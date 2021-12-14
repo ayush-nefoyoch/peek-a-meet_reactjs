@@ -9,6 +9,7 @@ const success = {
           type: "Point",
           coordinates: [77.0562783, 28.4649972],
         },
+        name: "Pragyanshu Sharma",
         firstName: "Pragyanshu",
         lastName: "Sharma",
         jobTitle: "Software Engineer",

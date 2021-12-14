@@ -1,0 +1,48 @@
+.InputSection_container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+/* ::-webkit-datetime-edit-year-field:not([aria-valuenow]),
+::-webkit-datetime-edit-month-field:not([aria-valuenow]),
+::-webkit-datetime-edit-day-field:not([aria-valuenow]) {
+    color: transparent;
+} */
+
+input[type="date"], input[type="time"]{
+    border: 0;
+    border-bottom: 1px solid gray;
+    margin: 10px;
+    color: black;
+}
+input:focus, textarea:focus{
+    outline: none;
+    color: black;
+}
+label{
+    /* display: block; */
+    color: #9ea0a3;
+}
+.dateTime{
+    padding: 10px;
+    display: flex;
+}
+textarea{
+    width: 50%;
+    border: 0;
+    border-bottom: 
+    1px solid gray;
+}
+.goback{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+    background-color: #f8f8f8;
+}
+.goback .mynotes{
+    color: #152d4e;
+    font-size: 20px;
+}
