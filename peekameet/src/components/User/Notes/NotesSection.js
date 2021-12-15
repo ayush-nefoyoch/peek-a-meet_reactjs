@@ -16,6 +16,10 @@ export const NotesSection = () => {
       dispatch(inputActions.setInputDate(item.date));
       dispatch(inputActions.setInputTime(item.time));
     };
+
+    const resetField = ()=>{
+      dispatch(inputActions.resetInputs());
+    }
   
     // if (notes.length === 0) {
     //   return (
@@ -29,7 +33,7 @@ export const NotesSection = () => {
       <li>
       <div className="addbtnSection">
       <img src={AddBtn}/>
-              <Link  style={{ textDecoration: 'none' }} to="/usernote" className="addnotebtn">Add Notes</Link>
+              <Link  style={{ textDecoration: 'none' }} to="/usernote" className="addnotebtn" onClick={resetField}>Add Notes</Link>
               </div>
             </li>
         {notes.map((item, index) => {

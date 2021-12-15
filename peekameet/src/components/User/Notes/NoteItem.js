@@ -1,16 +1,27 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './NoteItem.css';
 import { Link } from 'react-router-dom';
  const NoteItem = ({content, date, time, onItemClicked}) => {
+
+  const [read, setRead] = useState(true);
+
+  const toggleRead = ()=>{
+    setRead(!read);
+  }
+
     return (
         <div className="NoteItem__container"
         role="button"
         onClick={onItemClicked}
         >
-            <p>{content}</p>
+        <div className="content">
+            <p>{read ? content.slice(0, 100) : content}
+            </p>
+            </div>
             <div className="below">
+            <button className="btn btn-success btn-sm" onClick={toggleRead} >{read ? "More" : "Less"}</button><br/>
             <p>{time},</p>
-            <p>{date}</p>
+            <p className="date">{date}</p>
             </div>
             <nav className="navbar navbar-expand navbar-light bg-light">
   <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

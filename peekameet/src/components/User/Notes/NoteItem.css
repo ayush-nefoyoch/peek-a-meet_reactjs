@@ -1,6 +1,7 @@
 .NoteItem__container{
-    width: 484px;
-    height: 150px;
+    width: 604px;
+    /* overflow: hidden; */
+    height: 250px;
     /* border: solid 1px gray; */
     border-radius: 0.3em;
     padding: 1em;
@@ -15,20 +16,44 @@
     color: gray;
 }
 .below{
-    display: flex;
+    /* display: flex; */
     /* align-items: flex-end; */
-    margin-top: 43px;
+    margin-top: -33px;
+}
+.content{
+    padding-left: 20px;
+    /* width: auto; */
+    /* width: 400px; */
+    /* height: 400px; */
+    /* overflow-y: scroll; */
+    /* display: block; */
+    /* background-color: red; */
+    /* word-wrap: break-word; */
+    /* overflow-wrap: break-word; */
+    /* justify-content: center; */
+    /* text-align: justify; */
+    /* overflow: hidden; */
+    /* margin-bottom: 300px; */
+    text-align: justify;
+    
 }
 .below p{
     padding: 3px;
+}
+.below .date{
+margin-top: -23px;
+/* background-color: red; */
+}
+.below button{
+    margin-top: -33px;
 }
 .dropdown-toggle{
     /* background-color: rebeccapurple; */
     /* float: left; */
     /* padding-top: -120px; */
-    margin-left: 220px;
+    margin-left: 370px;
     display: block;
-    margin-top: -90px;
+    margin-top: -150px;
     color: gray;
     font-size: 28px;
 }

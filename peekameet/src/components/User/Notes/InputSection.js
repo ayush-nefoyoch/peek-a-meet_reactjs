@@ -7,11 +7,11 @@ import noteActions from '../../../redux/actions/noteActions';
 import inputActions from '../../../redux/actions/inputActions';
 import './InputSection.css';
 import { Link } from 'react-router-dom';
+import Arrow from '../../../assets/images/userprofile/arrow.svg'
 
 export const InputSection = () => {
 
     const id = useSelector(state => state.inputs.id)
-    const title = useSelector(state => state.inputs.title)
     const time = useSelector(state => state.inputs.time)
     const date = useSelector(state => state.inputs.date)
     const content = useSelector(state => state.inputs.content)
@@ -20,7 +20,6 @@ export const InputSection = () => {
     const addNote = () => {
         if(content && date && time){
             dispatch(noteActions.addNote({
-                title,
                 content,
                 date,
                 time
@@ -35,7 +34,7 @@ export const InputSection = () => {
     const updateNote = () =>{
         // if(content){
             dispatch(noteActions.updateNote(id, {
-                title, content, date, time
+                content, date, time
             }))
             dispatch(inputActions.resetInputs())
         // }
@@ -50,6 +49,7 @@ export const InputSection = () => {
     <div className="goback">
         <ul>
             <li>
+            <img className="arrow" src={Arrow}/>
                 <Link className="mynotes" style={{textDecoration:"none"}} to="/notes" >My Notes</Link>
             </li>
         </ul>
@@ -67,6 +67,9 @@ export const InputSection = () => {
             onChange = {e => dispatch(inputActions.setInputContent(e.target.value))}
         ></textarea>
         <div className="InputSection__container__btnWrapper">
+        <button type="button" className="mt-4 mr-4 mb-4 btn btn-outline-secondary cancel">
+            <Link to="/notes">Cancel</Link>
+        </button>
         <button type="button" className="mt-4 mb-4 btn btn-success"
         onClick={id === -1 ? addNote : updateNote}
         >

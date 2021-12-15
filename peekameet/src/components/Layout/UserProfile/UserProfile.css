@@ -9,9 +9,11 @@
     margin-left: 610px;
     justify-content: center;
     align-items: center;
-
+    /* width: 1800px; */
+    
 }
 .notesSection{
+    width: 600px;
     margin-left: 650px;
 }
 ul{
