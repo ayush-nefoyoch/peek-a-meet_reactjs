@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from 'react'
 import AboveGreen from '../../../assets/images/userprofile/userProfileHeader.svg';
-// import UserImage from '../../../assets/images/userprofile/userImage.jpg';
+import UserImage from '../../../assets/images/userprofile/userImage.jpeg';
 import MsgBtn1 from '../../../assets/images/userprofile/msgbtn1.svg';
 import MsgBtn2 from '../../../assets/images/userprofile/msgbtn2.svg';
 import { AuthContext } from '../../../store/auth-context';
@@ -28,8 +28,9 @@ export const UserHeader = () => {
                     console.log("userdetails",userCtx)
                 }
                 <div className="userImage">
-                    <video className="mainimage" src={userCtx.userDetails && userCtx.userDetails.data && userCtx.userDetails.data[0] && userCtx.userDetails.data[0].customer.buisnessLogo.url
-                     &&   userCtx.userDetails.data[0].customer.buisnessLogo.url} alt="userImage"/>
+                    {/* <video className="mainimage" src={userCtx.userDetails && userCtx.userDetails.data && userCtx.userDetails.data[0] && userCtx.userDetails.data[0].customer.buisnessLogo.url
+                     &&   userCtx.userDetails.data[0].customer.buisnessLogo.url} alt="userImage"/> */}
+                     {/* <img src={UserImage} alt="user image" className=""/> */}
                 </div>
             </div>
          </div>   

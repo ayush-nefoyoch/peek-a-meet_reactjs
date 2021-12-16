@@ -8,6 +8,7 @@ import inputActions from '../../../redux/actions/inputActions';
 import './InputSection.css';
 import { Link } from 'react-router-dom';
 import Arrow from '../../../assets/images/userprofile/arrow.svg'
+import { saveNotes } from '../../../redux/actions/asyncActions';
 
 export const InputSection = () => {
 
@@ -24,6 +25,7 @@ export const InputSection = () => {
                 date,
                 time
             }))
+            dispatch(saveNotes())
             dispatch(inputActions.resetInputs())
         }else{
             alert("fields should not empty")
@@ -70,6 +72,7 @@ export const InputSection = () => {
         <button type="button" className="mt-4 mr-4 mb-4 btn btn-outline-secondary cancel">
             <Link to="/notes">Cancel</Link>
         </button>
+
         <button type="button" className="mt-4 mb-4 btn btn-success"
         onClick={id === -1 ? addNote : updateNote}
         >

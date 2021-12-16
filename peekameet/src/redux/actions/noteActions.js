@@ -14,6 +14,11 @@ export default {
     deleteNote: (index)=>({
         type: actionTypes.DELETE_NOTE,
         index
+    }),
+    setUser: (user)=>({
+        type: actionTypes.SET_USER,
+        payload: user
     })
+
 
 }

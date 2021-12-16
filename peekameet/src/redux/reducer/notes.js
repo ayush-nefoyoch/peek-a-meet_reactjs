@@ -1,3 +1,4 @@
+import noteActions from "../actions/noteActions";
 import actionTypes from "../actionTypes";
 
 const initialState = {
@@ -37,3 +38,4 @@ export default (state = initialState, action)=>{
             return state;
     }
 }
+
