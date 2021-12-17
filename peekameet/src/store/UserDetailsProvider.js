@@ -1,25 +1,24 @@
-import React, {useContext, useEffect, useState} from 'react';
-import {UserContext} from './user-context';
+import React, { useContext, useEffect, useState } from "react";
+import { UserContext } from "./user-context";
 import success from "../api/mocks/userLogin";
-import { AuthContext } from './auth-context';
+import { AuthContext } from "./auth-context";
 
-export const UserContextProvider = (props)=>{
-
-    const authCtx = useContext(AuthContext);
-    // console.log(authCtx.userData.data[0].customer._id)
+export const UserContextProvider = (props) => {
+  const authCtx = useContext(AuthContext);
+  // console.log(authCtx.userData.data[0].customer._id)
   const [userDetails, setUserDetails] = useState({});
   const [isSuccess, setIsSuccess] = useState(false);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
 
   const getData = () => {
-    const url =
-      `https://apipeekameet.closudzmall.com//peekameet/api/v1/user/nearby/${authCtx.userData.data[0].customer._id}`;
-      fetch(url, {
-        headers:{
-          "Authorization":"Bearer "+ authCtx.userData.data[0].token
-        }
-      }).then((response) => {
+    const url = `https://apipeekameet.closudzmall.com//peekameet/api/v1/user/nearby/${authCtx.userData.data[0].customer._id}`;
+    fetch(url, {
+      headers: {
+        Authorization: "Bearer " + authCtx.userData.data[0].token,
+      },
+    })
+      .then((response) => {
         return response.json();
       })
       .then((response) => {
@@ -42,21 +41,20 @@ export const UserContextProvider = (props)=>{
         console.log("?", error);
         setUserDetails(success);
       });
-    };
+  };
 
-    const contextValue = {
+  const contextValue = {
     isFetching: loading,
     isSuccess: isSuccess,
     error: error,
     userDetails: userDetails,
-    getAPIData: getData
-    }
+    getAPIData: getData,
+  };
 
-    return (
-        <UserContext.Provider value={contextValue}>
-            {props.children}
-        </UserContext.Provider>
-    )
-
-}
+  return (
+    <UserContext.Provider value={contextValue}>
+      {props.children}
+    </UserContext.Provider>
+  );
+};
 export default UserContext;

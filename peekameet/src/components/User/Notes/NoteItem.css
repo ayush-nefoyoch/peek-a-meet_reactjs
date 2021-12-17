@@ -1,63 +1,50 @@
-.NoteItem__container{
-    width: 604px;
-    /* overflow: hidden; */
-    height: 250px;
-    /* border: solid 1px gray; */
-    border-radius: 0.3em;
-    padding: 1em;
-    margin-bottom: 1em;
-    display: inline-block;
-    cursor: pointer;
-    box-shadow:  -5px 0px 0px green,  2px -2px 12px 2px lightgray;;
-    margin-bottom: 30px;
-    display: flex;
-    flex-direction: column;
-    background-color: rgba(255, 255, 255, 0.788);
-    color: gray;
+.NoteItem__container {
+  width: 504px;
+  height: 200px;
+  border-radius: 0.3em;
+  padding: 1em;
+  margin-bottom: 1em;
+  display: inline-block;
+  cursor: pointer;
+  box-shadow: -5px 0px 0px green, 5px 1px 22px -1px lightgray;
+  border-left: 5px solid #09a04f;
+  margin-right: 30px;
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(255, 255, 255, 0.788);
+  color: gray;
 }
-.below{
-    /* display: flex; */
-    /* align-items: flex-end; */
-    margin-top: -33px;
+.textNote {
+  overflow: hidden;
 }
-.content{
-    padding-left: 20px;
-    /* width: auto; */
-    /* width: 400px; */
-    /* height: 400px; */
-    /* overflow-y: scroll; */
-    /* display: block; */
-    /* background-color: red; */
-    /* word-wrap: break-word; */
-    /* overflow-wrap: break-word; */
-    /* justify-content: center; */
-    /* text-align: justify; */
-    /* overflow: hidden; */
-    /* margin-bottom: 300px; */
-    text-align: justify;
-    
+.below {
+  margin-top: -33px;
 }
-.below p{
-    padding: 3px;
+.content {
+  padding-left: 20px;
+  text-align: justify;
 }
-.below .date{
-margin-top: -23px;
-/* background-color: red; */
+.below p {
+  padding: 3px;
 }
-.below button{
-    margin-top: -33px;
+.below .date {
+  margin-top: -23px;
 }
-.dropdown-toggle{
-    /* background-color: rebeccapurple; */
-    /* float: left; */
-    /* padding-top: -120px; */
-    margin-left: 370px;
-    display: block;
-    margin-top: -150px;
-    color: gray;
-    font-size: 28px;
+.below button {
+  margin-top: -33px;
 }
-.navbar-expand{
-    height: 0px;
-    width: 0px;
+.dropdown-toggle {
+  margin-left: 270px;
+  display: block;
+  margin-top: -150px;
+  color: gray;
+  font-size: 28px;
+}
+.dropdown-menu {
+  margin-top: -112px;
+  margin-left: 112px;
+}
+.navbar-expand {
+  height: 0px;
+  width: 0px;
 }

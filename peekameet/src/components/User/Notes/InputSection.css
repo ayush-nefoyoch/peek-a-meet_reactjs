@@ -1,58 +1,52 @@
-.InputSection_container{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+.InputSection_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
-
-/* ::-webkit-datetime-edit-year-field:not([aria-valuenow]),
-::-webkit-datetime-edit-month-field:not([aria-valuenow]),
-::-webkit-datetime-edit-day-field:not([aria-valuenow]) {
-    color: transparent;
-} */
-
-input[type="date"], input[type="time"]{
-    border: 0;
-    border-bottom: 1px solid gray;
-    margin: 10px;
-    color: black;
+input[type="date"],
+input[type="time"] {
+  border: 0;
+  border-bottom: 1px solid lightgray;
+  margin: 10px;
 }
-input:focus, textarea:focus{
-    outline: none;
-    color: black;
+input:focus,
+textarea:focus {
+  outline: none;
+  color: black;
 }
-label{
-    /* display: block; */
-    color: #9ea0a3;
+::-webkit-calendar-picker-indicator {
+  filter: invert(0.6);
 }
-.dateTime{
-    padding: 10px;
-    display: flex;
+label {
+  color: #9ea0a3;
 }
-textarea{
-    width: 50%;
-    border: 0;
-    border-bottom: 
-    1px solid gray;
+.dateTime {
+  padding: 10px;
+  display: flex;
 }
-.goback{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 30px;
-    background-color: #f8f8f8;
+textarea {
+  width: 40%;
+  border: 0;
+  border-bottom: 1px solid lightgray;
 }
-.goback .mynotes{
-    color: #152d4e;
-    font-size: 25px;
+.goback {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 30px;
+  background-color: #f8f8f8;
 }
-.arrow{
-    /* margin-top: ; */
-    margin: 3px 5px 10px 10px;
+.goback .mynotes {
+  color: #152d4e;
+  font-size: 25px;
 }
-.arrow:hover{
-    cursor: pointer;
+.arrow {
+  margin: 3px 5px 10px 10px;
 }
-.cancel:hover{
-background-color: lightgray;
+.arrow:hover {
+  cursor: pointer;
+}
+.cancel:hover {
+  background-color: lightgray;
 }

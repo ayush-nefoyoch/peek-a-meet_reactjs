@@ -61,19 +61,18 @@ export const saveNotes = () => async (dispatch, getState) => {
       body: JSON.stringify({
         createdFor: success.data[0].customer._id,
         noteText: notes,
-      }),  
+      }),
+    }
+  )
+    .then((response) => {
+      dispatch(fetchUsersSuccess(response));
+      alert("in success block");
     })
-    .then((response)=>{
-        dispatch(fetchUsersSuccess(response))
-        alert("in success block")
-    })
-    .catch((error)=>{
-        const errorMsg = error.message;
-        alert("in error block")
-        // console.log(usernote);
-        // dispatch(fetchUsersSuccess(usernote));
-        // dispatch(fetchUsersFailure(errorMsg));
-    })
+    .catch((error) => {
+      const errorMsg = error.message;
+      alert("in error block");
+      // console.log(usernote);
+      // dispatch(fetchUsersSuccess(usernote));
+      // dispatch(fetchUsersFailure(errorMsg));
+    });
 };
-
-// export default fetchUsers;
