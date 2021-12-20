@@ -49,15 +49,12 @@ const AuthForm = () => {
       enteredPassword === "Hrhk@1234"
     ) {
       authCtx.getAPIData(enteredEmail, enteredPassword);
-      // console.log("direct after api call ",authCtx.getData)
-      // authCtx.login(600000);
     } else {
       alert("Invalid email and password!");
     }
   };
   useEffect(() => {
     if (authCtx.userData && authCtx.userData.data && authCtx.userData.data[0]) {
-      console.log(authCtx.userData.data[0].token);
       authCtx.login(authCtx.userData.data[0].token, 600000);
       navigate("/profile");
     }

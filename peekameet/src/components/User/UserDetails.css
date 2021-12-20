@@ -13,6 +13,9 @@
 .content .inspired {
   margin: -15px 0 0 0;
 }
+.content img{
+  padding-left: -400px;
+}
 .inspired {
   height: 19px;
   /* font-family: DMSans; */
@@ -22,7 +25,10 @@
   line-height: 1.36;
   color: #152d4e;
 }
+.inspired h5{
+  /* margin-left: -90px; */
 
+}
 .upperpara {
   width: 446px;
   margin: 18px 16px 15px 15px;

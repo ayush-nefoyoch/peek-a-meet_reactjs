@@ -10,11 +10,9 @@ import InfiniteScroll from "react-infinite-scroll-component";
 
 export const NotesSection = () => {
   const dispatch = useDispatch();
-
   const userNote = useSelector((state) => state.asyncService.users);
   useEffect(() => {
     dispatch(fetchUserNote());
-    // fetchUsers();
   }, []);
   useEffect(() => {
     if (
@@ -23,7 +21,7 @@ export const NotesSection = () => {
       userNote.data[0] &&
       userNote.data[0].docs[0]
     ) {
-      // console.log("asdsdee", userNote.data[0].docs[0].dateTime);
+      // console.log("data", userNote.data[0].docs[0].dateTime);
       <NoteItem
         content={userNote.data[0].docs[0].noteText}
         date={userNote.data[0].docs[0].dateTime}
@@ -45,8 +43,7 @@ export const NotesSection = () => {
     dispatch(inputActions.resetInputs());
   };
 
-  let len = notesList.length;
-  console.log(len);
+  let len = notesList.length; 
   const initial = {
     items: notesList.slice(0, 2),
     hasMore: true,
@@ -55,19 +52,14 @@ export const NotesSection = () => {
   const [state, setState] = useState(initial);
 
   const fetchData = () => {
-    // console.log("loading list: ", initial.items.length);
-    // console.log("note length: ", notesList.length);
-    // console.log("page count",state.pageCount)
     if (initial.items.length * state.pageCount === notesList.length) {
       setState((prevState) => ({
         ...prevState,
         hasMore: false,
       }));
-      console.log(state.hasMore);
       return;
     }
     setTimeout(() => {
-      // console.log("sds");
       setState((prevState) => ({
         ...prevState,
         items: state.items.concat(

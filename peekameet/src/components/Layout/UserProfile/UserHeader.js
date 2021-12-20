@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from "react";
 import AboveGreen from "../../../assets/images/userprofile/userProfileHeader.svg";
-import UserImage from "../../../assets/images/userprofile/userImage1.jpeg";
+import UserImage from "../../../assets/images/userprofile/userImage3.jpg";
 import MsgBtn1 from "../../../assets/images/userprofile/msgbtn1.svg";
 import MsgBtn2 from "../../../assets/images/userprofile/msgbtn2.svg";
 import { AuthContext } from "../../../store/auth-context";
@@ -23,17 +23,18 @@ export const UserHeader = () => {
         <div className="headerContainer mt-3 d-flex justify-content-center">
           <div className="imageContainer">
             <img src={AboveGreen} alt="green" />
-            {console.log("userdetails", userCtx)}
+            {/* {console.log("userdetails", userCtx)} */}
             <div className="userImage">
-              <video
+              <img
                 className="mainimage"
-                src={
-                  userCtx.userDetails &&
-                  userCtx.userDetails.data &&
-                  userCtx.userDetails.data[0] &&
-                  userCtx.userDetails.data[0].customer.buisnessLogo.url &&
-                  userCtx.userDetails.data[0].customer.buisnessLogo.url
-                }
+                // src={
+                //   userCtx.userDetails &&
+                //   userCtx.userDetails.data &&
+                //   userCtx.userDetails.data[0] &&
+                //   userCtx.userDetails.data[0].customer.buisnessLogo.url &&
+                //   userCtx.userDetails.data[0].customer.buisnessLogo.url
+                // }
+                src={UserImage}
                 alt="userImage"
               />
               {/* <img src={UserImage} alt="user image" className=""/> */}

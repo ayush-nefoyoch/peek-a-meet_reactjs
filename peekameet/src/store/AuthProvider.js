@@ -15,10 +15,8 @@ export const AuthContextProvider = (props) => {
     setToken(null);
   };
 
-  const loginHandler = (token, expirationTime) => {
-    console.log(userData.data[0].token);
+  const loginHandler = (token) => {
     setToken(token);
-    // setTimeout(logoutHandler, expirationTime);
   };
 
   const getData = (userEmail, userPassword) => {
@@ -53,8 +51,7 @@ export const AuthContextProvider = (props) => {
         }
       })
       .catch((error) => {
-        console.log("in api call then", error);
-        // console.log("?", error);
+        setError(error)
         setUserData(success);
       });
   };

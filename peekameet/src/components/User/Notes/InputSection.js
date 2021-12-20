@@ -1,15 +1,11 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-// import './InputSection.style.scss';
-// import noteActions from '../redux/actions/noteActions';
-// import inputActions from '../redux/actions/inputActions';
 import noteActions from "../../../redux/actions/noteActions";
 import inputActions from "../../../redux/actions/inputActions";
 import "./InputSection.css";
 import { Link } from "react-router-dom";
 import Arrow from "../../../assets/images/userprofile/arrow.svg";
 import { saveNotes } from "../../../redux/actions/asyncActions";
-import { fetchUserNote } from "../../../redux/actions/asyncActions";
 
 export const InputSection = () => {
   const id = useSelector((state) => state.inputs.id);
@@ -35,7 +31,6 @@ export const InputSection = () => {
   };
 
   const updateNote = () => {
-    // if(content){
     dispatch(
       noteActions.updateNote(id, {
         content,
@@ -44,7 +39,6 @@ export const InputSection = () => {
       })
     );
     dispatch(inputActions.resetInputs());
-    // }
   };
 
   const deleteNote = () => {

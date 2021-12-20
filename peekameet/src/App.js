@@ -9,7 +9,6 @@ import { InputSection } from "./components/User/Notes/InputSection";
 
 function App() {
   const authCtx = useContext(AuthContext);
-  console.log(authCtx.isLoggedIn);
   return (
     <>
       <Layout>

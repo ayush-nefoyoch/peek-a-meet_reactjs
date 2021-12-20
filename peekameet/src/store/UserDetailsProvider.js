@@ -37,8 +37,7 @@ export const UserContextProvider = (props) => {
         }
       })
       .catch((error) => {
-        console.log("in api call then", error);
-        console.log("?", error);
+        setError(error)
         setUserDetails(success);
       });
   };

@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 import "./NoteItem.css";
-
-import { useSelector } from "react-redux";
 import { Dropdown } from "./Dropdown";
 const NoteItem = ({ content, date, time, onItemClicked }) => {
   const [read, setRead] = useState(true);

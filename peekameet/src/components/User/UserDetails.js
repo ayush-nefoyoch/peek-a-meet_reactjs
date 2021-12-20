@@ -12,11 +12,11 @@ export const UserDetails = () => {
       <div className="upperContainer">
         <div className="upperContainerContent">
           <div className="content">
-            <img src={LeftQuote} />
+            <img className="left" src={LeftQuote} />
             <div className="inspired">
-              Inspired by the world and everything it has to offer.
+             <h5> Inspired by the world and everything it has to offer.</h5>
             </div>
-            <img src={RightQuote} />
+            <img className="right" src={RightQuote} />
           </div>
         </div>
         <p className="upperpara">

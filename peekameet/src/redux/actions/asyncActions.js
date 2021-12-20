@@ -34,16 +34,13 @@ export const fetchUserNote = () => {
         }
       )
       .then((response) => {
-        // response.data is the array of users
         const users = response.data;
         dispatch(fetchUsersSuccess(users));
       })
       .catch((error) => {
         const errorMsg = error;
-        console.log(usernote);
         dispatch(fetchUsersSuccess(usernote));
         dispatch(fetchUsersFailure(errorMsg));
-        // error is the error description
       });
   };
 };
@@ -71,8 +68,5 @@ export const saveNotes = () => async (dispatch, getState) => {
     .catch((error) => {
       const errorMsg = error.message;
       alert("in error block");
-      // console.log(usernote);
-      // dispatch(fetchUsersSuccess(usernote));
-      // dispatch(fetchUsersFailure(errorMsg));
     });
 };
