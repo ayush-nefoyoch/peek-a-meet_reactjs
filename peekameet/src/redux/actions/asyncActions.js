@@ -63,10 +63,8 @@ export const saveNotes = () => async (dispatch, getState) => {
   )
     .then((response) => {
       dispatch(fetchUsersSuccess(response));
-      alert("in success block");
     })
     .catch((error) => {
       const errorMsg = error.message;
-      alert("in error block");
     });
 };
