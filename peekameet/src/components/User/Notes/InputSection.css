@@ -1,0 +1,52 @@
+.InputSection_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+input[type="date"],
+input[type="time"] {
+  border: 0;
+  border-bottom: 1px solid lightgray;
+  margin: 10px;
+}
+input:focus,
+textarea:focus {
+  outline: none;
+  color: black;
+}
+::-webkit-calendar-picker-indicator {
+  filter: invert(0.6);
+}
+label {
+  color: #9ea0a3;
+}
+.dateTime {
+  padding: 10px;
+  display: flex;
+}
+textarea {
+  width: 40%;
+  border: 0;
+  border-bottom: 1px solid lightgray;
+}
+.goback {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 30px;
+  background-color: #f8f8f8;
+}
+.goback .mynotes {
+  color: #152d4e;
+  font-size: 25px;
+}
+.arrow {
+  margin: 3px 5px 10px 10px;
+}
+.arrow:hover {
+  cursor: pointer;
+}
+.cancel:hover {
+  background-color: lightgray;
+}
